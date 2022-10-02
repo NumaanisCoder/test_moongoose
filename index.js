@@ -5,6 +5,7 @@ const Product = require('./models/product')
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
+const port = process.env.PORT || 5000;
 
 mongoose.connect('mongodb://localhost:27017/farmStand')
 .then(()=>{
@@ -68,6 +69,6 @@ app.delete('/products/:id', async (req,res)=>{
 })
 
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Listening at 3000");
 })
