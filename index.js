@@ -18,6 +18,8 @@ const DB = "mongodb+srv://numaan:21032002@cluster0.h0rjrno.mongodb.net/testfarms
 //     console.log(err)
 // })
 
+//mongoose Connetion
+
 mongoose.connect(DB,{
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -29,11 +31,13 @@ mongoose.connect(DB,{
     console.log(err);
 })
 
+// MiddleWare
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
-
 app.set('views',path.join(__dirname,'views'));
 app.set('view engine', 'ejs');
+
+//Routes
 
 app.get('/',(req,res)=>{
     res.redirect('/products')
