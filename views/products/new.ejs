@@ -20,9 +20,9 @@
 </head>
 <body>
     <form action="/products" method="post">
-        <input type="text" name="name" placeholder="Enter product name">
+        <input type="text" id="name" oninput="validate()" name="name" placeholder="Enter product name">
         <br>
-        <input type="text" name="price" placeholder="Enter price">
+        <input type="text" oninput="validate()" id="price" name="price" placeholder="Enter price">
         <br>
         <br>
         <select name="category" id="">
@@ -31,9 +31,27 @@
             <option value="diary">Diary</option>
         </select>
         <br><br>
-        <button>submit</button>
+        <button id="btnsubmit">submit</button>
     </form>
 <br>
     <a href="/products">Back to All products</a>
 </body>
+<script>
+    let name = document.querySelector('#name').value;
+    let price = document.querySelector('#price').value;
+    let button = document.querySelector('#btnsubmit');
+    button.disabled = true;
+
+    function validate(){
+        if(document.querySelector('#name').value == '' || document.querySelector('#price').value == ''){
+            console.log(document.querySelector('#price').value)
+        button.disabled = true;
+    }else{
+        button.disabled = false;
+        }
+    }
+    
+    
+
+</script>
 </html>
