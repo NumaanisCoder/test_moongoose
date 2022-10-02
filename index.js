@@ -47,7 +47,13 @@ app.get('/products',async (req,res)=>{
 
 app.post('/products', async (req,res)=>{
     const product = new Product(req.body);
-    await product.save();
+    await product.save()
+    // .then(()=>{
+    //     res.redirect('/products');
+    // })
+    // .catch(()=>{
+    //     res.redirect('/products/error')
+    // })
     // res.send('Your Product is Added');
     res.redirect('/products');
 })
