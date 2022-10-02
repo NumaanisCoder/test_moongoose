@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= product.name %> </title>
+    <style>
+        button a{
+            color: black;
+            text-decoration: none;
+        }
+        button{
+            background-color: blue;
+        }
+        li{
+            font-size: larger;
+        }
+        form button{
+            background-color: red;
+        }
+        form button:hover{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1><%= product.name %> </h1>
+    <li>Price: $<%= product.price %> </li>
+    <li>category: <%= product.category%> </li>
+    <br>
+    <button><a href="/products/<%=product._id%>/edit ">Edit This</a></button>
+    <br><br>
+    <form action="/products/<%=product._id%>?_method=DELETE" method="post">
+    <button>Delete</button>
+    </form><br>
+    <a href="/products">Go to All Products</a>
+</body>
+</html>
