@@ -5,7 +5,7 @@ const Product = require('./models/product')
 const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
 const DB = "mongodb+srv://numaan:21032002@cluster0.h0rjrno.mongodb.net/testfarms?retryWrites=true&w=majority"
 

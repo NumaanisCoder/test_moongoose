@@ -24,9 +24,9 @@
 <body>
     <h1>Update <%= product.name %> </h1>
     <form action="/products/<%= product._id %>?_method=PUT" method="post">
-        <input type="text" name="name" placeholder="Enter product name" value="<%= product.name %> ">
+        <input type="text" id="name" name="name" oninput="validate()" placeholder="Enter product name" value="<%= product.name %> ">
         <br>
-        <input type="text" name="price" placeholder="Enter price" value="<%= product.price %> ">
+        <input type="text" id="price" name="price" oninput="validate()" placeholder="Enter price" value="<%= product.price %> ">
         <br>
         <br>
         <select name="category" id="" value="<%=product.category%>">
@@ -35,9 +35,24 @@
             <option value="diary" <%= product.category === 'diary' ? 'selected':'' %>>Diary</option>
         </select>
         <br><br>
-        <button>Update</button>
+        <button id="btnsubmit">Update</button>
     </form>
     <br>
     <a href="/products">All Products</a>
 </body>
+<script>
+    
+    let button = document.querySelector('#btnsubmit');
+    button.disabled = true;
+
+    function validate(){
+        if(document.querySelector('#name').value == '' || document.querySelector('#price').value == ''){
+            console.log(document.querySelector('#price').value)
+        button.disabled = true;
+    }else{
+        button.disabled = false;
+        }
+    }
+    
+</script>
 </html>
