@@ -1,14 +1,17 @@
 const Product = require('./models/product')
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/farmStand')
-.then(()=>{
-    console.log("Mongo Connected");
-})
-.catch(err => {
-    console.log("ERROR BY MONGO");
-    console.log(err)
-})
+const DB = "mongodb+srv://numaan:21032002@cluster0.h0rjrno.mongodb.net/testfarms?retryWrites=true&w=majority"
 
+mongoose.connect(DB,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+})
+.then(()=>{
+    console.log("Connection Successfull");
+})
+.catch(err =>{
+    console.log(err);
+})
 // const p = new Product({
 //     name: "Ruby Grapefruit",
 //     price: 1.99,

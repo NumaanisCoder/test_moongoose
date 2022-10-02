@@ -7,13 +7,26 @@ const mongoose = require('mongoose');
 
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/farmStand')
-.then(()=>{
-    console.log("Mongo Connected");
+const DB = "mongodb+srv://numaan:21032002@cluster0.h0rjrno.mongodb.net/testfarms?retryWrites=true&w=majority"
+
+// mongoose.connect('mongodb://localhost:27017/farmStand')
+// .then(()=>{
+//     console.log("Mongo Connected");
+// })
+// .catch(err => {
+//     console.log("ERROR BY MONGO");
+//     console.log(err)
+// })
+
+mongoose.connect(DB,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 })
-.catch(err => {
-    console.log("ERROR BY MONGO");
-    console.log(err)
+.then(()=>{
+    console.log("Connection Successfull");
+})
+.catch(err =>{
+    console.log(err);
 })
 
 app.use(express.urlencoded({ extended: true }))
@@ -70,5 +83,5 @@ app.delete('/products/:id', async (req,res)=>{
 
 
 app.listen(port,()=>{
-    console.log("Listening at 3000");
+    console.log(`Listening at ${port}`);
 })
