@@ -6,11 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= product.name %> </title>
     <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        a{
+            display: block;
+            text-align: center;
+            color: white;
+        }
         button a{
             color: black;
             text-decoration: none;
         }
+        #btn a{
+           
+            color: white;
+        }
         button{
+            margin-left: 20px;
             background-color: blue;
         }
         li{
@@ -22,6 +36,9 @@
         form button:hover{
             cursor: pointer;
         }
+        h1{
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -29,7 +46,7 @@
     <li>Price: <%= product.price %> </li>
     <li>category: <%= product.category%> </li>
     <br>
-    <button><a href="/products/<%=product._id%>/edit ">Edit This</a></button>
+    <button id="btn"><a href="/products/<%=product._id%>/edit ">Edit This</a></button>
     <br><br>
     <form action="/products/<%=product._id%>?_method=DELETE" method="post">
     <button>Delete</button>

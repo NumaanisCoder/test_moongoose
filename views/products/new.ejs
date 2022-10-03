@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Product</title>
     <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        button{
+            color: white;
+        }
+        h2{
+            text-align: center;
+        }
         form{
             text-align: center;
         }
@@ -13,12 +23,14 @@
             margin-top: 10px;
         }
         a{
+            color: white;
             display: block;
             text-align: center;
         }
     </style>
 </head>
 <body>
+    <h2>Add New Product</h2>
     <form action="/products" method="post">
         <input type="text" id="name" oninput="validate()" name="name" placeholder="Enter product name">
         <br>
@@ -39,13 +51,15 @@
 <script>
     let button = document.querySelector('#btnsubmit');
     button.disabled = true;
+    button.style.background = 'red';
 
     function validate(){
         if(document.querySelector('#name').value == '' || document.querySelector('#price').value == ''){
-            console.log(document.querySelector('#price').value)
+        button.style.background = 'red';
         button.disabled = true;
     }else{
         button.disabled = false;
+        button.style.background = 'green'
         }
     }
     
