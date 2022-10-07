@@ -11,7 +11,11 @@ const productSchema = new mongoose.Schema({
     },
     category:{
         type:String,
-        enum: ['fruit','vegetable','diary']
+        enum: ['fruit','vegetable','diary','Mobile','Laptop','Shoes']
+    },
+    date:{
+        type:Date,
+        default:Date.now
     }
 })
 
